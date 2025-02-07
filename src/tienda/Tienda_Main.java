@@ -5,6 +5,8 @@ import instrumentos.Instrumento;
 
 public class Tienda_Main {
     public static void main(String[] args) {
-        System.out.println("Hola desde la tienda");
+        System.out.println("Tienfa");
+        Instrumento instrumento = new Instrumento();
+        instrumento.getInfo();
     }
 }
