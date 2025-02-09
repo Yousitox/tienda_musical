@@ -91,12 +91,31 @@ public class Instrumento {
     // constructor con valores por defecto
     public Instrumento() {
         this.precio = 300;
-        this.modelo = "Modelo por defecto, " + GuitarraLite.name();
+        this.modelo = "Modelo por defecto";
         this.dniComprador = "Sin Dni por defecto";
         this.nombreComprador = "Sin nombre por defecto";
         this.fechaCompra = LocalDate.now();
         this.fechaFabricacion = LocalDate.of(2005, 10, 5);
         this.stock = 0;
+        if (stock == 0) {
+            this.sinStock = true;
+
+        } else {
+            this.sinStock = false;
+        }
+    }
+
+    // constructor que inicializa valores dados por el usuario
+    public Instrumento(double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
+            LocalDate fechaFabricacion) {
+        GuitarraLite.name();
+        this.precio = precio;
+        this.modelo = modelo;
+        this.dniComprador = dniComprador;
+        this.nombreComprador = nombreComprador;
+        this.fechaCompra = LocalDate.now();
+        this.fechaFabricacion = fechaFabricacion;
+        stock++;
         if (stock == 0) {
             this.sinStock = true;
 
