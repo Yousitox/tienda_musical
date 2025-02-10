@@ -16,6 +16,7 @@ public class Instrumento {
     private LocalDate fechaFabricacion;
     private static int stock = 0;
     private boolean sinStock;
+
     private Marca marcas;
 
     // Todos los guetter y setter
@@ -79,7 +80,7 @@ public class Instrumento {
         return stock;
     }
 
-    public boolean isSinStock() {
+    public boolean getSinStock() {
         return sinStock;
     }
 
@@ -94,12 +95,6 @@ public class Instrumento {
         this.modelo = "GuitarraLite";
         this.fechaFabricacion = LocalDate.of(2015, 10, 5);
         stock++;
-        if (stock == 0) {
-            this.sinStock = true;
-
-        } else {
-            this.sinStock = false;
-        }
     }
 
     // constructor con todos los valores
@@ -113,12 +108,6 @@ public class Instrumento {
         this.fechaCompra = fechaCompra;
         this.fechaFabricacion = fechaFabricacion;
         stock++;
-        if (stock == 0) {
-            this.sinStock = true;
-
-        } else {
-            this.sinStock = false;
-        }
     }
 
     public Instrumento(Marca marcas, double precio, String modelo,  LocalDate fechaFabricacion) {
@@ -127,15 +116,9 @@ public class Instrumento {
         this.modelo = modelo;
         this.fechaFabricacion = fechaFabricacion;
         stock++;
-        if (stock == 0) {
-            this.sinStock = true;
-
-        } else {
-            this.sinStock = false;
-        }
     }
 
-    // toString
+    // toString [ARREGLAR NO SABER FUNCIONAMIENTO]
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
@@ -146,8 +129,25 @@ public class Instrumento {
     public void getInfo() {
         System.out.println("Modelo: " + this.modelo + "\nPrecio: " + this.precio + "\nDni del comprador: "
                 + this.dniComprador + "\nNombre del comprador: " + this.nombreComprador + "\nFecha de compra: "
-                + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion + "\nStock: " + stock
-                + "\nSin stock: " + this.sinStock);
+                + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion + "\nStock: " + stock);
+    }
+
+    // funcion para obtener los años desde la fabricacion
+    // lo que hace el until es restar la fecha de fabricacion a la fecha actual
+    // y con el getYears se obtiene los años
+    public void getAnyos(){
+        System.out.println("Años desde la fabricacion: " + fechaFabricacion.until(LocalDate.now()).getYears());
+    }
+
+    //funcion para saber si esta disponible (si no a sido comprada)
+    public void estaDisponible(){
+        if (this.fechaCompra == null) {
+            this.sinStock = true;
+            System.out.println(getSinStock());
+        } else {
+            this.sinStock = false;
+            System.out.println(getSinStock());
+        }
     }
 
 }

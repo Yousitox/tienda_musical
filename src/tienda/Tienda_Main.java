@@ -55,14 +55,14 @@ public class Tienda_Main {
         //
         Instrumento instrumento = new Instrumento();
         //
-        Instrumento instrumento3 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce",
-        LocalDate.of(2023, 01, 31));
-        //
         Instrumento instrumento2 = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold",
-        LocalDate.of(2012, 02, 12));
+                LocalDate.of(2012, 02, 12));
+        //
+        Instrumento instrumento3 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce",
+                LocalDate.of(2023, 01, 31));
         //
         Instrumento instrumento4 = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica",
-        LocalDate.of(2022, 12, 1));
+                LocalDate.of(2022, 12, 1));
         // variable para el escanar
         int elecInfo = 10;
         // do/while para el menu de informacion
@@ -72,38 +72,62 @@ public class Tienda_Main {
             System.out.println("3.-Bateria marca " + Marca.PERRO_SANCHEZ_MUSIC);
             System.out.println("4.-Bateria marca " + Marca.FEIJO_OLD_CLASIC);
             System.out.println("0.-Salir");
-            //try/catch para evitar errores
+            // try/catch para evitar errores
             try {
                 elecInfo = scaner.nextInt();
                 if (elecInfo == 0) {
-                    System.out.println("Espero que regresas pronto");
+                    System.out.println("Regresando al menu principal");
                     break;
                 }
             } catch (InputMismatchException e) {
                 scaner.next();
             }
-            //switch para la eleccion del usuario
+            // switch para la eleccion del usuario
             switch (elecInfo) {
-                //casos para la informacion de los instrumentos
-                //caso 1 guitarra por defecto
+                // casos para la informacion de los instrumentos
+                // caso 1 guitarra por defecto
                 case 1:
+                    System.out.println("--------------------");
                     System.out.println("Esta Guitarra es el de por defecto perfecto para empezar");
                     instrumento.getInfo();
+                    System.out.println("Esta disponible?");
+                    instrumento.estaDisponible();
+                    System.out.println("Y tiene estos años de antiguedad:");
+                    instrumento.getAnyos();
+                    System.out.println("--------------------");
                     break;
-                //caso 2 guitarra marca LA_GALLINA_DE_ORO
+                // caso 2 guitarra marca LA_GALLINA_DE_ORO
                 case 2:
+                    System.out.println("--------------------");
                     System.out.println("Esta Guitarra es muy buena para gente mas experimentada");
                     instrumento2.getInfo();
+                    System.out.println("Esta disponible?");
+                    instrumento2.estaDisponible();
+                    System.out.println("Y tiene estos años de antiguedad:");
+                    instrumento2.getAnyos();
+                    System.out.println("--------------------");
                     break;
-                //caso 3 bateria marca PERRO_SANCHEZ_MUSIC
+                // caso 3 bateria marca PERRO_SANCHEZ_MUSIC
                 case 3:
+                    System.out.println("--------------------");
                     System.out.println("Esta Bateria es muy buena para gente mas novata");
                     instrumento3.getInfo();
+                    System.out.println("Esta disponible?");
+                    instrumento3.estaDisponible();
+                    System.out.println("Y tiene estos años de antiguedad:");
+                    instrumento3.getAnyos();
+                    System.out.println("--------------------");
                     break;
-                //caso 4 bateria marca FEIJO_OLD_CLASIC
+                // caso 4 bateria marca FEIJO_OLD_CLASIC
                 case 4:
+                    System.out.println("--------------------");
                     System.out.println("Esta Bateria es muy buena para gente mas experimentada");
                     instrumento4.getInfo();
+                    System.out.println("Esta disponible?");
+                    instrumento4.estaDisponible();
+                    System.out.println("Y tiene estos años de antiguedad:");
+                    instrumento4.getAnyos();
+                    System.out.println("--------------------");
                     break;
                 default:
                     System.out.println("Opcion no valida");
@@ -111,14 +135,4 @@ public class Tienda_Main {
             }
         } while (true);
     }
-
-    /*
-     * private void intrumentoDefecto() {
-     * // valores por defecto
-     * Instrumento instrumento = new Instrumento();
-     * instrumento.getInfo();
-     * // con el toString
-     * System.out.println(instrumento.toString());
-     * }
-     */
 }
