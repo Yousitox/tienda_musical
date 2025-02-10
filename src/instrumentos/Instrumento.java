@@ -2,26 +2,35 @@ package instrumentos;
 
 import java.time.LocalDate;
 
+enum Marca {
+    Perro_Sanchez_Music, La_Gallina_De_Oro, Feijo_Old_Clasic
+};
+
 public class Instrumento {
     // Las variables
     private double precio;
 
-    public enum marca {
-        Perro_Sanchez_Music, La_Gallina_De_Oro, Feijo_Old_Clasic
-    };
+
 
     private String modelo;
     private String dniComprador;
     private String nombreComprador;
     private LocalDate fechaCompra;
     private LocalDate fechaFabricacion;
-    private int stock;
+    private static int stock = 0;
     private boolean sinStock;
 
     // marcas del enum
-    private marca marca1 = marca.Perro_Sanchez_Music;
-    private marca La_Gallina_De_Oro = marca.La_Gallina_De_Oro;
-    private marca Feijo_Old_Clasic = marca.Feijo_Old_Clasic;
+/*     private Marca marca1;
+    private Marca marca2;
+    private Marca marca3;
+    {
+    marca1 = Marca.Perro_Sanchez_Music;
+    marca2 = Marca.La_Gallina_De_Oro;
+    marca3 = Marca.Feijo_Old_Clasic;
+    } */
+
+    
 
     // Todos los guetter y setter
     public double getPrecio() {
@@ -76,10 +85,6 @@ public class Instrumento {
         return stock;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     public boolean isSinStock() {
         return sinStock;
     }
@@ -96,7 +101,6 @@ public class Instrumento {
         this.nombreComprador = "Sin nombre por defecto";
         this.fechaCompra = LocalDate.now();
         this.fechaFabricacion = LocalDate.of(2015, 10, 5);
-        this.stock = 0;
         if (stock == 0) {
             this.sinStock = true;
 
@@ -106,8 +110,10 @@ public class Instrumento {
     }
 
     // constructor que inicializa valores dados por el usuario
-    public Instrumento(double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
+    public Instrumento(/* Marca marcas, */ double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
             LocalDate fechaFabricacion) {
+/*         this.marca1 = marcas;
+        this.marca2 = marcas; */
         this.precio = precio;
         this.modelo = modelo;
         this.dniComprador = dniComprador;
@@ -128,7 +134,7 @@ public class Instrumento {
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
-                + "\nMarca: " + marca1;
+                + "\nMarca: " /* + marca1 + marca2 + marca3 */;
     }
 
     
@@ -137,7 +143,7 @@ public class Instrumento {
     public void getInfo() {
         System.out.println("Modelo: " + this.modelo + "\nPrecio: " + this.precio + "\nDni del comprador: "
                 + this.dniComprador + "\nNombre del comprador: " + this.nombreComprador + "\nFecha de compra: "
-                + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion + "\nStock: " + this.stock
+                + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion + "\nStock: " + stock
                 + "\nSin stock: " + this.sinStock);
     }
 

@@ -1,5 +1,6 @@
 package tienda;
 
+import java.util.Scanner;
 import java.time.LocalDate;
 
 //importamos el paquete instrumentos webinfo(https://www.forosdelweb.com/f45/enlazar-dos-ficheros-java-401230/)
@@ -7,7 +8,20 @@ import instrumentos.Instrumento;
 
 public class Tienda_Main {
     public static void main(String[] args) {
-        System.out.println("Tienfa");
+        Scanner scaner = new Scanner(System.in);
+        System.out.println("Tienda----Menu");
+        System.out.println("1.-Comprar");
+        System.out.println("2.-Informacion");
+        System.out.println("0.-Salir");
+
+        switch (scaner.nextInt()) {
+            case 1:
+                
+                break;
+        
+            default:
+                break;
+        }
         //valores por defecto
         Instrumento instrumento = new Instrumento();
         instrumento.getInfo();
@@ -19,5 +33,7 @@ public class Tienda_Main {
 
         //con el toString
         System.out.println(instrumento.toString());
+
+        scaner.close();
     }
 }
