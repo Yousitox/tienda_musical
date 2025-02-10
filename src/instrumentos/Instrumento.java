@@ -7,7 +7,7 @@ public class Instrumento {
     private double precio;
 
     private enum marca {
-        GuitarraLite, GuitarraLiteGold, BateriaGold6
+        Perro_Sanchez_Music, La_Gallina_De_Oro, Feijo_Old_Clasic
     };
 
     private String modelo;
@@ -19,9 +19,9 @@ public class Instrumento {
     private boolean sinStock;
 
     // marcas del enum
-    private marca GuitarraLite = marca.GuitarraLite;
-    private marca GuitarraLiteGold = marca.GuitarraLiteGold;
-    private marca BateriaGold6 = marca.BateriaGold6;
+    private marca Perro_Sanchez_Music = marca.Perro_Sanchez_Music;
+    private marca La_Gallina_De_Oro = marca.La_Gallina_De_Oro;
+    private marca Feijo_Old_Clasic = marca.Feijo_Old_Clasic;
 
     // Todos los guetter y setter
     public double getPrecio() {
@@ -90,12 +90,12 @@ public class Instrumento {
 
     // constructor con valores por defecto
     public Instrumento() {
-        this.precio = 300;
-        this.modelo = "Modelo por defecto";
+        this.precio = 1300;
+        this.modelo = "GuitarraLite";
         this.dniComprador = "Sin Dni por defecto";
         this.nombreComprador = "Sin nombre por defecto";
         this.fechaCompra = LocalDate.now();
-        this.fechaFabricacion = LocalDate.of(2005, 10, 5);
+        this.fechaFabricacion = LocalDate.of(2015, 10, 5);
         this.stock = 0;
         if (stock == 0) {
             this.sinStock = true;
@@ -108,7 +108,6 @@ public class Instrumento {
     // constructor que inicializa valores dados por el usuario
     public Instrumento(double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
             LocalDate fechaFabricacion) {
-        GuitarraLite.name();
         this.precio = precio;
         this.modelo = modelo;
         this.dniComprador = dniComprador;
@@ -122,6 +121,12 @@ public class Instrumento {
         } else {
             this.sinStock = false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
+                + "\nMarca: " + Perro_Sanchez_Music;
     }
 
     // funcion para optener la informacion

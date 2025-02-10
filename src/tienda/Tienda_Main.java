@@ -12,9 +12,12 @@ public class Tienda_Main {
         Instrumento instrumento = new Instrumento();
         instrumento.getInfo();
         //valores por unsuario
-        Instrumento instrumento2 = new Instrumento(800, "Guitarra", "12345678A", "Juan", null, LocalDate.of(2022, 12, 1));
+        Instrumento instrumento2 = new Instrumento(1800, "Guitarra_Gold", "12345678A", "Juan", null, LocalDate.of(2022, 12, 1));
         instrumento2.getInfo();
-        Instrumento instrumento3 = new Instrumento(900, "Guitarra2", "12445678A", "Luan", null, LocalDate.of(2024, 2, 5));
+        Instrumento instrumento3 = new Instrumento(1000, "Baterria Clasic", "12445678A", "Luan", null, LocalDate.of(2024, 2, 5));
         instrumento3.getInfo();
+
+        //con el toString
+        System.out.println(instrumento.toString());
     }
 }
