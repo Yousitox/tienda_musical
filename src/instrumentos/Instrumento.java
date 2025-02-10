@@ -88,6 +88,18 @@ public class Instrumento {
         this.sinStock = sinStock;
     }
 
+    public void setPerro_Sanchez_Music(marca perro_Sanchez_Music) {
+        Perro_Sanchez_Music = perro_Sanchez_Music;
+    }
+
+    public void setLa_Gallina_De_Oro(marca la_Gallina_De_Oro) {
+        La_Gallina_De_Oro = la_Gallina_De_Oro;
+    }
+
+    public void setFeijo_Old_Clasic(marca feijo_Old_Clasic) {
+        Feijo_Old_Clasic = feijo_Old_Clasic;
+    }
+
     // constructor con valores por defecto
     public Instrumento() {
         this.precio = 1300;
@@ -128,7 +140,7 @@ public class Instrumento {
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
-                + "\nMarca: " + Perro_Sanchez_Music;
+                + "\nMarca: " + "";
     }
 
     
