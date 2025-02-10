@@ -118,11 +118,16 @@ public class Instrumento {
         stock++;
     }
 
-    // toString [ARREGLAR NO SABER FUNCIONAMIENTO]
+    //toString sirve para consultar la informacion mas basica
+    //ya que el getInfo obtine la informacion de todo
+    //y al no ver informacion pone null y son datos que el 
+    //usuario no necesita, a no ser que este compre la guitarra o bateria
+    //el cual va dentro de una cadenade texto y no fuera
+    //para que pueda funcionar
     @Override
     public String toString() {
-        return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
-                + "\nMarca: " + marcas;
+        return "\nPrecio: " + precio + "\nModelo: " + modelo + "\nFecha de Fabricacion: " + fechaFabricacion
+                + "\nMarca: " + marcas + "\nStock: " + getStock();
     }
 
     // funcion para optener la informacion
@@ -149,5 +154,10 @@ public class Instrumento {
             System.out.println(getSinStock());
         }
     }
+
+    //Funcion para saber si el dni es correcto devolviendo un true o false
+    public void esDniValido(String dni) {
+    }
+
 
 }

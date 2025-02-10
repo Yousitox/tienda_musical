@@ -88,8 +88,7 @@ public class Tienda_Main {
                 // caso 1 guitarra por defecto
                 case 1:
                     System.out.println("--------------------");
-                    System.out.println("Esta Guitarra es el de por defecto perfecto para empezar");
-                    instrumento.getInfo();
+                    System.out.println("Esta Guitarra es el de por defecto perfecto para empezar\n" + instrumento.toString());
                     System.out.println("Esta disponible?");
                     instrumento.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
@@ -99,8 +98,7 @@ public class Tienda_Main {
                 // caso 2 guitarra marca LA_GALLINA_DE_ORO
                 case 2:
                     System.out.println("--------------------");
-                    System.out.println("Esta Guitarra es muy buena para gente mas experimentada");
-                    instrumento2.getInfo();
+                    System.out.println("Esta Guitarra es muy buena para gente mas experimentada\n" + instrumento2.toString());
                     System.out.println("Esta disponible?");
                     instrumento2.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
@@ -110,8 +108,7 @@ public class Tienda_Main {
                 // caso 3 bateria marca PERRO_SANCHEZ_MUSIC
                 case 3:
                     System.out.println("--------------------");
-                    System.out.println("Esta Bateria es muy buena para gente mas novata");
-                    instrumento3.getInfo();
+                    System.out.println("Esta Bateria es muy buena para gente mas novata\n" + instrumento3.toString());
                     System.out.println("Esta disponible?");
                     instrumento3.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
@@ -121,8 +118,7 @@ public class Tienda_Main {
                 // caso 4 bateria marca FEIJO_OLD_CLASIC
                 case 4:
                     System.out.println("--------------------");
-                    System.out.println("Esta Bateria es muy buena para gente mas experimentada");
-                    instrumento4.getInfo();
+                    System.out.println("Esta Bateria es muy buena para gente mas experimentada\n" + instrumento4.toString());
                     System.out.println("Esta disponible?");
                     instrumento4.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
