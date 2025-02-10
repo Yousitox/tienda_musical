@@ -101,6 +101,7 @@ public class Instrumento {
         this.nombreComprador = "Sin nombre por defecto";
         this.fechaCompra = LocalDate.now();
         this.fechaFabricacion = LocalDate.of(2015, 10, 5);
+        stock++;
         if (stock == 0) {
             this.sinStock = true;
 
