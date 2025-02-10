@@ -16,6 +16,7 @@ public class Tienda_Main {
         // instanciamos la clase Tienda_Main para poder acceder a sus funciones no
         // estaticas
         Tienda_Main tienda = new Tienda_Main();
+        Instrumento comprar = new Instrumento();
 
         // variable para el escanar
         int elec = 10;
@@ -38,7 +39,9 @@ public class Tienda_Main {
 
             switch (elec) {
                 case 1:
-
+                String texto = scaner.nextLine();
+                String texto2 = scaner.nextLine();
+                    comprar.comprar(texto, texto2, LocalDate.now());
                     break;
                 case 2:
                     tienda.menuInfo();

@@ -76,7 +76,7 @@ public class Instrumento {
         this.fechaFabricacion = fechaFabricacion;
     }
 
-    public int getStock() {
+    public static int getStock() {
         return stock;
     }
 
@@ -163,7 +163,7 @@ public class Instrumento {
     public void comprar(String dni, String nombreComprador, LocalDate fechaCompra) {
         this.dniComprador = dni;
         this.nombreComprador = nombreComprador;
-        this.fechaCompra = LocalDate.now();
+        this.fechaCompra = fechaCompra;
         stock--;
     }
 
