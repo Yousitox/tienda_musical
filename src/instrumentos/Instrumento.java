@@ -2,16 +2,12 @@ package instrumentos;
 
 import java.time.LocalDate;
 
-enum Marca {
-    Perro_Sanchez_Music, La_Gallina_De_Oro, Feijo_Old_Clasic
-};
-
 public class Instrumento {
+    public enum Marca {
+        PERRO_SANCHEZ_MUSIC, LA_GALLINA_DE_ORO, FEIJO_OLD_CLASIC
+    };
     // Las variables
     private double precio;
-
-
-
     private String modelo;
     private String dniComprador;
     private String nombreComprador;
@@ -19,20 +15,16 @@ public class Instrumento {
     private LocalDate fechaFabricacion;
     private static int stock = 0;
     private boolean sinStock;
-
-    // marcas del enum
-/*     private Marca marca1;
-    private Marca marca2;
-    private Marca marca3;
-    {
-    marca1 = Marca.Perro_Sanchez_Music;
-    marca2 = Marca.La_Gallina_De_Oro;
-    marca3 = Marca.Feijo_Old_Clasic;
-    } */
-
-    
+    private Marca marcas;
 
     // Todos los guetter y setter
+        public Marca getMarcas() {
+        return marcas;
+    }
+
+    public void setMarcas(Marca marcas) {
+        this.marcas = marcas;
+    }
     public double getPrecio() {
         return precio;
     }
@@ -95,6 +87,7 @@ public class Instrumento {
 
     // constructor con valores por defecto
     public Instrumento() {
+        this.marcas = Marca.PERRO_SANCHEZ_MUSIC;
         this.precio = 1300;
         this.modelo = "GuitarraLite";
         this.dniComprador = "Sin Dni por defecto";
@@ -111,10 +104,9 @@ public class Instrumento {
     }
 
     // constructor que inicializa valores dados por el usuario
-    public Instrumento(/* Marca marcas, */ double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
+    public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
             LocalDate fechaFabricacion) {
-/*         this.marca1 = marcas;
-        this.marca2 = marcas; */
+        this.marcas = marcas;
         this.precio = precio;
         this.modelo = modelo;
         this.dniComprador = dniComprador;
@@ -135,7 +127,7 @@ public class Instrumento {
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
-                + "\nMarca: " /* + marca1 + marca2 + marca3 */;
+                + "\nMarca: " + marcas;
     }
 
     
