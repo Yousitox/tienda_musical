@@ -6,7 +6,7 @@ public class Instrumento {
     // Las variables
     private double precio;
 
-    private enum marca {
+    public enum marca {
         Perro_Sanchez_Music, La_Gallina_De_Oro, Feijo_Old_Clasic
     };
 
@@ -19,7 +19,7 @@ public class Instrumento {
     private boolean sinStock;
 
     // marcas del enum
-    private marca Perro_Sanchez_Music = marca.Perro_Sanchez_Music;
+    private marca marca1 = marca.Perro_Sanchez_Music;
     private marca La_Gallina_De_Oro = marca.La_Gallina_De_Oro;
     private marca Feijo_Old_Clasic = marca.Feijo_Old_Clasic;
 
@@ -88,18 +88,6 @@ public class Instrumento {
         this.sinStock = sinStock;
     }
 
-    public void setPerro_Sanchez_Music(marca perro_Sanchez_Music) {
-        Perro_Sanchez_Music = perro_Sanchez_Music;
-    }
-
-    public void setLa_Gallina_De_Oro(marca la_Gallina_De_Oro) {
-        La_Gallina_De_Oro = la_Gallina_De_Oro;
-    }
-
-    public void setFeijo_Old_Clasic(marca feijo_Old_Clasic) {
-        Feijo_Old_Clasic = feijo_Old_Clasic;
-    }
-
     // constructor con valores por defecto
     public Instrumento() {
         this.precio = 1300;
@@ -140,7 +128,7 @@ public class Instrumento {
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
-                + "\nMarca: " + "";
+                + "\nMarca: " + marca1;
     }
 
     
