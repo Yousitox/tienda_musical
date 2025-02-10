@@ -6,6 +6,7 @@ public class Instrumento {
     public enum Marca {
         PERRO_SANCHEZ_MUSIC, LA_GALLINA_DE_ORO, FEIJO_OLD_CLASIC
     };
+
     // Las variables
     private double precio;
     private String modelo;
@@ -18,13 +19,14 @@ public class Instrumento {
     private Marca marcas;
 
     // Todos los guetter y setter
-        public Marca getMarcas() {
+    public Marca getMarcas() {
         return marcas;
     }
 
     public void setMarcas(Marca marcas) {
         this.marcas = marcas;
     }
+
     public double getPrecio() {
         return precio;
     }
@@ -92,7 +94,7 @@ public class Instrumento {
         this.modelo = "GuitarraLite";
         this.dniComprador = "Sin Dni por defecto";
         this.nombreComprador = "Sin nombre por defecto";
-        this.fechaCompra = LocalDate.now();
+        this.fechaCompra = null;
         this.fechaFabricacion = LocalDate.of(2015, 10, 5);
         stock++;
         if (stock == 0) {
@@ -104,14 +106,15 @@ public class Instrumento {
     }
 
     // constructor que inicializa valores dados por el usuario
-    public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador, LocalDate fechaCompra,
+    public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
+            LocalDate fechaCompra,
             LocalDate fechaFabricacion) {
         this.marcas = marcas;
         this.precio = precio;
         this.modelo = modelo;
         this.dniComprador = dniComprador;
         this.nombreComprador = nombreComprador;
-        this.fechaCompra = LocalDate.now();
+        this.fechaCompra = fechaCompra;
         this.fechaFabricacion = fechaFabricacion;
         stock++;
         if (stock == 0) {
@@ -122,15 +125,12 @@ public class Instrumento {
         }
     }
 
-
-    //toString
+    // toString
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
                 + "\nMarca: " + marcas;
     }
-
-    
 
     // funcion para optener la informacion
     public void getInfo() {

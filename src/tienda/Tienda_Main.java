@@ -1,5 +1,6 @@
 package tienda;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.time.LocalDate;
 
@@ -8,73 +9,115 @@ import instrumentos.Instrumento;
 import instrumentos.Instrumento.Marca;
 
 public class Tienda_Main {
+    // el escaner
+    static Scanner scaner = new Scanner(System.in);
+
     public static void main(String[] args) {
+        // instanciamos la clase Tienda_Main para poder acceder a sus funciones no
+        // estaticas
         Tienda_Main tienda = new Tienda_Main();
+
+        // variable para el escanar
+        int elec = 10;
+        // do/while para el menu de la tienda
         do {
-            Scanner scaner = new Scanner(System.in);
             System.out.println("Tienda----Menu");
             System.out.println("1.-Comprar");
             System.out.println("2.-Informacion");
             System.out.println("0.-Salir");
 
-            switch (scaner.nextInt()) {
+            try {
+                elec = scaner.nextInt();
+                if (elec == 0) {
+                    System.out.println("Espero que regresas pronto");
+                    break;
+                }
+            } catch (InputMismatchException e) {
+                scaner.next();
+            }
+
+            switch (elec) {
                 case 1:
-                    Instrumento instrumento2 = new Instrumento(Marca.LA_GALLINA_DE_ORO , 1800, "Guitarra_Gold", "12345678A", "Juan", null,
-                            LocalDate.of(2022, 12, 1));
-                    instrumento2.getInfo();
+
                     break;
                 case 2:
                     tienda.menuInfo();
                     break;
-
                 default:
+                    System.out.println("Opcion no valida");
                     break;
             }
         } while (true);
-
-        /*
-         * // valores por unsuario
-         * Instrumento instrumento2 = new Instrumento(1800, "Guitarra_Gold",
-         * "12345678A", "Juan", null,
-         * LocalDate.of(2022, 12, 1));
-         * instrumento2.getInfo();
-         * Instrumento instrumento3 = new Instrumento(1000, "Baterria Clasic",
-         * "12445678A", "Luan", null,
-         * LocalDate.of(2024, 2, 5));
-         * instrumento3.getInfo();
-         */
     }
 
+    // menu de informacion de instrumentos
     private void menuInfo() {
+        // variable para el escanar
+        int elecInfo = 10;
+        // do/while para el menu de informacion
         do {
-            Scanner scaner = new Scanner(System.in);
-            System.out.println("1.-Instrumento por defecto");
-            System.out.println("2.-Instrumento");
+            System.out.println("1.-Guitarra por defecto");
+            System.out.println("2.-Guitarra marca " + Marca.LA_GALLINA_DE_ORO);
+            System.out.println("3.-Bateria marca " + Marca.PERRO_SANCHEZ_MUSIC);
+            System.out.println("4.-Bateria marca " + Marca.FEIJO_OLD_CLASIC);
             System.out.println("0.-Salir");
-            switch (scaner.nextInt()) {
+            //try/catch para evitar errores
+            try {
+                elecInfo = scaner.nextInt();
+                if (elecInfo == 0) {
+                    System.out.println("Espero que regresas pronto");
+                    break;
+                }
+            } catch (InputMismatchException e) {
+                scaner.next();
+            }
+            //switch para la eleccion del usuario
+            switch (elecInfo) {
+                //casos para la informacion de los instrumentos
+                //caso 1 guitarra por defecto
                 case 1:
-                    intrumentoDefecto();
+                    System.out.println("Esta Guitarra es el de por defecto perfecto para empezar");
+                    Instrumento instrumento = new Instrumento();
+                    instrumento.getInfo();
                     break;
+                //caso 2 guitarra marca LA_GALLINA_DE_ORO
                 case 2:
-
+                    System.out.println("Esta Guitarra es muy buena para gente mas experimentada");
+                    Instrumento instrumento2 = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold",
+                            "12345678A", "Juan", null,
+                            LocalDate.of(2022, 12, 1));
+                    instrumento2.getInfo();
                     break;
+                //caso 3 bateria marca PERRO_SANCHEZ_MUSIC
                 case 3:
-
+                    System.out.println("Esta Bateria es muy buena para gente mas novata");
+                    Instrumento instrumento3 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce",
+                            "12345678A", "Juan", null,
+                            LocalDate.of(2022, 12, 1));
+                    instrumento3.getInfo();
                     break;
+                //caso 4 bateria marca FEIJO_OLD_CLASIC
                 case 4:
-
+                    System.out.println("Esta Bateria es muy buena para gente mas experimentada");
+                    Instrumento instrumento4 = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica",
+                            "12345678A", "Juan", null,
+                            LocalDate.of(2022, 12, 1));
+                    instrumento4.getInfo();
                     break;
                 default:
+                    System.out.println("Opcion no valida");
                     break;
             }
         } while (true);
     }
 
-    private void intrumentoDefecto() {
-        // valores por defecto
-        Instrumento instrumento = new Instrumento();
-        instrumento.getInfo();
-        // con el toString
-        System.out.println(instrumento.toString());
-    }
+    /*
+     * private void intrumentoDefecto() {
+     * // valores por defecto
+     * Instrumento instrumento = new Instrumento();
+     * instrumento.getInfo();
+     * // con el toString
+     * System.out.println(instrumento.toString());
+     * }
+     */
 }
