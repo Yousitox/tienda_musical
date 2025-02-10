@@ -159,5 +159,13 @@ public class Instrumento {
     public void esDniValido(String dni) {
     }
 
+    //Funcion para comprar
+    public void comprar(String dni, String nombreComprador, LocalDate fechaCompra) {
+        this.dniComprador = dni;
+        this.nombreComprador = nombreComprador;
+        this.fechaCompra = LocalDate.now();
+        stock--;
+    }
+
 
 }
