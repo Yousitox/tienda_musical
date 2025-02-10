@@ -92,9 +92,6 @@ public class Instrumento {
         this.marcas = Marca.PERRO_SANCHEZ_MUSIC;
         this.precio = 1300;
         this.modelo = "GuitarraLite";
-        this.dniComprador = "Sin Dni por defecto";
-        this.nombreComprador = "Sin nombre por defecto";
-        this.fechaCompra = null;
         this.fechaFabricacion = LocalDate.of(2015, 10, 5);
         stock++;
         if (stock == 0) {
@@ -105,16 +102,29 @@ public class Instrumento {
         }
     }
 
-    // constructor que inicializa valores dados por el usuario
+    // constructor con todos los valores
     public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
-            LocalDate fechaCompra,
-            LocalDate fechaFabricacion) {
+            LocalDate fechaCompra, LocalDate fechaFabricacion) {
         this.marcas = marcas;
         this.precio = precio;
         this.modelo = modelo;
         this.dniComprador = dniComprador;
         this.nombreComprador = nombreComprador;
         this.fechaCompra = fechaCompra;
+        this.fechaFabricacion = fechaFabricacion;
+        stock++;
+        if (stock == 0) {
+            this.sinStock = true;
+
+        } else {
+            this.sinStock = false;
+        }
+    }
+
+    public Instrumento(Marca marcas, double precio, String modelo,  LocalDate fechaFabricacion) {
+        this.marcas = marcas;
+        this.precio = precio;
+        this.modelo = modelo;
         this.fechaFabricacion = fechaFabricacion;
         stock++;
         if (stock == 0) {
