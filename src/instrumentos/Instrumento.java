@@ -123,11 +123,15 @@ public class Instrumento {
         }
     }
 
+
+    //toString
     @Override
     public String toString() {
         return "Instrumento, modelo: " + modelo + "\nFechaFabricacion " + fechaFabricacion
                 + "\nMarca: " + Perro_Sanchez_Music;
     }
+
+    
 
     // funcion para optener la informacion
     public void getInfo() {
