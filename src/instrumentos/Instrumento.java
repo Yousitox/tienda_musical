@@ -2,15 +2,17 @@ package instrumentos;
 
 import java.time.LocalDate;
 
-public class Instrumento {
+public abstract class Instrumento {
     public enum Marca {
         PERRO_SANCHEZ_MUSIC, LA_GALLINA_DE_ORO, FEIJO_OLD_CLASIC
     };
 
     private static int stock = 0;
+
     public static int getStock() {
         return stock;
     }
+
     // Las variables
     private double precio;
     private String modelo;
@@ -173,6 +175,83 @@ public class Instrumento {
         }
     }
 
-    
+    // abstract es una forma de decirlo
+    // es algo restringido y inascesible
+    public abstract void tocar();
 
+    // declaramos la calase hija guitarra
+    public static class Guitarra extends Instrumento {
+        private String tipo = "Electrica";
+        private int numeroCuerdas = 6;
+
+        // getters y setters
+        public String getTipo() {
+            return tipo;
+        }
+
+        public int getNumeroCuerdas() {
+            return numeroCuerdas;
+        }
+
+        public Guitarra() {
+            /*
+             * Super es una palabra de java que se usa para acceder
+             * a los constructores de la clase padre
+             */
+            super();
+        }
+
+        public Guitarra(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
+            super(marcas, precio, modelo, fechaFabricacion);
+        }
+
+        public Guitarra(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
+                LocalDate fechaCompra, LocalDate fechaFabricacion) {
+            super(marcas, precio, modelo, dniComprador, nombreComprador, fechaCompra, fechaFabricacion);
+        }
+
+        public void tocar() {
+            System.out.println(
+                    "Tocando la guitarra " + getTipo() + " con " + getNumeroCuerdas() + " cuerdas y sueno muy bien");
+        }
+
+    }
+
+        // declaramos la calase hija Bataria
+        public static class Bateria extends Instrumento {
+            private int numeroTambores = 6;
+            private int numeroPlatos = 2;
+    
+            // getters y setters
+            public int getNumeroTambores() {
+                return numeroTambores;
+            }
+    
+            public int getNumeroPlatos() {
+                return numeroPlatos;
+            }
+    
+            public Bateria() {
+                /*
+                 * Super es una palabra de java que se usa para acceder
+                 * a los constructores de la clase padre
+                 */
+                super();
+            }
+    
+            public Bateria(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
+                super(marcas, precio, modelo, fechaFabricacion);
+            }
+    
+            public Bateria(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
+                    LocalDate fechaCompra, LocalDate fechaFabricacion) {
+                super(marcas, precio, modelo, dniComprador, nombreComprador, fechaCompra, fechaFabricacion);
+            }
+    
+            public void tocar() {
+                System.out.println(
+                        "Tocando la Bateria " + getNumeroTambores() + " con " + getNumeroPlatos() + " cuerdas y sueno muy bien");
+            }
+    
+        }
 }

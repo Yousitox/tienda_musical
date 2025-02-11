@@ -7,6 +7,8 @@ import java.time.LocalDate;
 //importamos el paquete instrumentos webinfo(https://www.forosdelweb.com/f45/enlazar-dos-ficheros-java-401230/)
 import instrumentos.Instrumento;
 import instrumentos.Instrumento.Marca;
+import instrumentos.Instrumento.Bateria;
+import instrumentos.Instrumento.Guitarra;
 
 public class Tienda_Main {
     // el escaner
@@ -53,15 +55,15 @@ public class Tienda_Main {
     // menu de informacion de instrumentos
     private void menuInfo() {
         //
-        Instrumento instrumento = new Instrumento();
+        Instrumento instrumento = new Guitarra();
         //
-        Instrumento instrumento2 = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold",
+        Instrumento instrumento2 = new Guitarra(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold",
                 LocalDate.of(2012, 02, 12));
         //
-        Instrumento instrumento3 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce",
+        Instrumento instrumento3 = new Bateria(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce",
                 LocalDate.of(2023, 01, 31));
         //
-        Instrumento instrumento4 = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica",
+        Instrumento instrumento4 = new Bateria(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica",
                 LocalDate.of(2022, 12, 1));
         // variable para el escanar
         int elecInfo = 10;
@@ -94,6 +96,8 @@ public class Tienda_Main {
                     instrumento.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
                     instrumento.getAnyos();
+                    System.out.println("Suena asi: ");
+                    instrumento.tocar();
                     System.out.println("--------------------");
                     break;
                 // caso 2 guitarra marca LA_GALLINA_DE_ORO
@@ -105,6 +109,8 @@ public class Tienda_Main {
                     instrumento2.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
                     instrumento2.getAnyos();
+                    System.out.println("Suena asi: ");
+                    instrumento2.tocar();
                     System.out.println("--------------------");
                     break;
                 // caso 3 bateria marca PERRO_SANCHEZ_MUSIC
@@ -115,6 +121,8 @@ public class Tienda_Main {
                     instrumento3.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
                     instrumento3.getAnyos();
+                    System.out.println("Suena asi: ");
+                    instrumento3.tocar();
                     System.out.println("--------------------");
                     break;
                 // caso 4 bateria marca FEIJO_OLD_CLASIC
@@ -126,6 +134,8 @@ public class Tienda_Main {
                     instrumento4.estaDisponible();
                     System.out.println("Y tiene estos años de antiguedad:");
                     instrumento4.getAnyos();
+                    System.out.println("Suena asi: ");
+                    instrumento4.tocar();
                     System.out.println("--------------------");
                     break;
                 default:
@@ -159,7 +169,7 @@ public class Tienda_Main {
 
             switch (elecCompra) {
                 case 1:
-                    Instrumento comprar = new Instrumento();
+                    Instrumento comprar = new Guitarra();
 
                     /*
                      * Si el objeto comprar1 no es nulo, se podra comprar el producto
@@ -188,13 +198,15 @@ public class Tienda_Main {
                          * es igual al dniComprador, si es igual y muestra la informacion
                          */
                         if (comprar.getDniComprador().equals(dni)) {
+                            System.out.println("--------------------");
                             System.out.println("Información de la guitarra comprada:");
                             comprar.getInfo();
+                            System.out.println("--------------------");
                         }
                     }
                     break;
                 case 2:
-                    Instrumento comprar1 = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold", null, null,
+                    Instrumento comprar1 = new Guitarra(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold", null, null,
                             null,
                             LocalDate.of(2012, 02, 12));
 
@@ -207,13 +219,15 @@ public class Tienda_Main {
                         comprar1.comprar(dni, nombre, LocalDate.now());
 
                         if (comprar1.getDniComprador().equals(dni)) {
+                            System.out.println("--------------------");
                             System.out.println("Información de la guitarra comprada:");
                             comprar1.getInfo();
+                            System.out.println("--------------------");
                         }
                     }
                     break;
                 case 3:
-                    Instrumento comprar2 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce", null,
+                    Instrumento comprar2 = new Bateria(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce", null,
                             null, null,
                             LocalDate.of(2023, 01, 31));
                     if (comprar2 != null) {
@@ -225,13 +239,15 @@ public class Tienda_Main {
                         comprar2.comprar(dni, nombre, LocalDate.now());
 
                         if (comprar2.getDniComprador().equals(dni)) {
+                            System.out.println("--------------------");
                             System.out.println("Información de la guitarra comprada:");
                             comprar2.getInfo();
+                            System.out.println("--------------------");
                         }
                     }
                     break;
                 case 4:
-                    Instrumento comprar3 = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica", null, null,
+                    Instrumento comprar3 = new Bateria(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica", null, null,
                             null,
                             LocalDate.of(2022, 12, 1));
                     if (comprar3 != null) {
@@ -243,8 +259,10 @@ public class Tienda_Main {
                         comprar3.comprar(dni, nombre, LocalDate.now());
 
                         if (comprar3.getDniComprador().equals(dni)) {
+                            System.out.println("--------------------");
                             System.out.println("Información de la guitarra comprada:");
                             comprar3.getInfo();
+                            System.out.println("--------------------");
                         }
                     }
                     break;
