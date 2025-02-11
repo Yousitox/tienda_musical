@@ -157,41 +157,100 @@ public class Tienda_Main {
                 scaner.next();
             }
 
-            Instrumento comprar = null;
             switch (elecCompra) {
                 case 1:
-                    comprar = new Instrumento();
+                    Instrumento comprar = new Instrumento();
+
+                    /*
+                     * Si el objeto comprar1 no es nulo, se podra comprar el producto
+                     * pidiendole despues el dni y el nombre
+                     */
+                    if (comprar != null) {
+                        System.out.println("Introduce tu DNI");
+                        scaner.nextLine();
+                        String dni = scaner.nextLine();
+                        System.out.println("Introduce tu nombre");
+                        String nombre = scaner.nextLine();
+                        comprar.comprar(dni, nombre, LocalDate.now());
+
+                        /*
+                         * Muestra la información de la guitarra comprada
+                         * ademas el if obtiene el dni añadido por el comprador
+                         * y este lo compara con el añadido por el comprador
+                         * para saber si es igual y despues muestra la informacion
+                         * de la guitarra comprada
+                         * ---------
+                         * this.dniComprador = dni;
+                         * en esa parte, de la clase instrumento,
+                         * en la funcion comprar, el dni añadido en el scaner
+                         * pasa a la variable dniComprador, entonces
+                         * cuando el if va a verificiar si el dni añadido
+                         * es igual al dniComprador, si es igual y muestra la informacion
+                         */
+                        if (comprar.getDniComprador().equals(dni)) {
+                            System.out.println("Información de la guitarra comprada:");
+                            comprar.getInfo();
+                        }
+                    }
                     break;
                 case 2:
-                    comprar = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold", null, null, null,
+                    Instrumento comprar1 = new Instrumento(Marca.LA_GALLINA_DE_ORO, 1800, "Guitarra_Gold", null, null,
+                            null,
                             LocalDate.of(2012, 02, 12));
+
+                    if (comprar1 != null) {
+                        System.out.println("Introduce tu DNI");
+                        scaner.nextLine();
+                        String dni = scaner.nextLine();
+                        System.out.println("Introduce tu nombre");
+                        String nombre = scaner.nextLine();
+                        comprar1.comprar(dni, nombre, LocalDate.now());
+
+                        if (comprar1.getDniComprador().equals(dni)) {
+                            System.out.println("Información de la guitarra comprada:");
+                            comprar1.getInfo();
+                        }
+                    }
                     break;
                 case 3:
-                    comprar = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce", null, null, null,
+                    Instrumento comprar2 = new Instrumento(Marca.PERRO_SANCHEZ_MUSIC, 2800, "Bateria_Bronce", null,
+                            null, null,
                             LocalDate.of(2023, 01, 31));
+                    if (comprar2 != null) {
+                        System.out.println("Introduce tu DNI");
+                        scaner.nextLine();
+                        String dni = scaner.nextLine();
+                        System.out.println("Introduce tu nombre");
+                        String nombre = scaner.nextLine();
+                        comprar2.comprar(dni, nombre, LocalDate.now());
+
+                        if (comprar2.getDniComprador().equals(dni)) {
+                            System.out.println("Información de la guitarra comprada:");
+                            comprar2.getInfo();
+                        }
+                    }
                     break;
                 case 4:
-                    comprar = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica", null, null, null,
+                    Instrumento comprar3 = new Instrumento(Marca.FEIJO_OLD_CLASIC, 3800, "Bateria_Clasica", null, null,
+                            null,
                             LocalDate.of(2022, 12, 1));
+                    if (comprar3 != null) {
+                        System.out.println("Introduce tu DNI");
+                        scaner.nextLine();
+                        String dni = scaner.nextLine();
+                        System.out.println("Introduce tu nombre");
+                        String nombre = scaner.nextLine();
+                        comprar3.comprar(dni, nombre, LocalDate.now());
+
+                        if (comprar3.getDniComprador().equals(dni)) {
+                            System.out.println("Información de la guitarra comprada:");
+                            comprar3.getInfo();
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Opcion no valida");
                     break;
-            }
-
-            if (comprar != null) {
-                System.out.println("Introduce tu DNI");
-                scaner.nextLine();
-                String texto = scaner.nextLine();
-                System.out.println("Introduce tu nombre");
-                String texto2 = scaner.nextLine();
-                comprar.comprar(texto, texto2, LocalDate.now());
-
-                // Muestra la información de la guitarra comprada
-                if (comprar.getDniComprador().equals(texto)) {
-                    System.out.println("Información de la guitarra comprada:");
-                    comprar.getInfo();
-                }
             }
         } while (true);
     }
