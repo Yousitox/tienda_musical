@@ -110,7 +110,7 @@ public class Instrumento {
         stock++;
     }
 
-    public Instrumento(Marca marcas, double precio, String modelo,  LocalDate fechaFabricacion) {
+    public Instrumento(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
         this.marcas = marcas;
         this.precio = precio;
         this.modelo = modelo;
@@ -118,12 +118,12 @@ public class Instrumento {
         stock++;
     }
 
-    //toString sirve para consultar la informacion mas basica
-    //ya que el getInfo obtine la informacion de todo
-    //y al no ver informacion pone null y son datos que el 
-    //usuario no necesita, a no ser que este compre la guitarra o bateria
-    //el cual va dentro de una cadenade texto y no fuera
-    //para que pueda funcionar
+    // toString sirve para consultar la informacion mas basica
+    // ya que el getInfo obtine la informacion de todo
+    // y al no ver informacion pone null y son datos que el
+    // usuario no necesita, a no ser que este compre la guitarra o bateria
+    // el cual va dentro de una cadenade texto y no fuera
+    // para que pueda funcionar
     @Override
     public String toString() {
         return "\nPrecio: " + precio + "\nModelo: " + modelo + "\nFecha de Fabricacion: " + fechaFabricacion
@@ -132,20 +132,21 @@ public class Instrumento {
 
     // funcion para optener la informacion
     public void getInfo() {
-        System.out.println("Modelo: " + this.modelo + "\nPrecio: " + this.precio + "\nDni del comprador: "
-                + this.dniComprador + "\nNombre del comprador: " + this.nombreComprador + "\nFecha de compra: "
-                + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion + "\nStock: " + stock);
+        System.out.println(
+                "Modelo: " + this.modelo + "\nMarca: " + marcas + "\nPrecio: " + this.precio + "\nDni del comprador: "
+                        + this.dniComprador + "\nNombre del comprador: " + this.nombreComprador + "\nFecha de compra: "
+                        + this.fechaCompra + "\nFecha de fabricacion: " + this.fechaFabricacion);
     }
 
     // funcion para obtener los años desde la fabricacion
     // lo que hace el until es restar la fecha de fabricacion a la fecha actual
     // y con el getYears se obtiene los años
-    public void getAnyos(){
+    public void getAnyos() {
         System.out.println("Años desde la fabricacion: " + fechaFabricacion.until(LocalDate.now()).getYears());
     }
 
-    //funcion para saber si esta disponible (si no a sido comprada)
-    public void estaDisponible(){
+    // funcion para saber si esta disponible (si no a sido comprada)
+    public void estaDisponible() {
         if (this.fechaCompra == null) {
             this.sinStock = true;
             System.out.println(getSinStock());
@@ -155,17 +156,21 @@ public class Instrumento {
         }
     }
 
-    //Funcion para saber si el dni es correcto devolviendo un true o false
-    public void esDniValido(String dni) {
+    // Funcion para saber si el dni es correcto devolviendo un true o false
+    public boolean esDniValido(String dni) {
+        return true;
     }
 
-    //Funcion para comprar
+    // Funcion para comprar
     public void comprar(String dni, String nombreComprador, LocalDate fechaCompra) {
-        this.dniComprador = dni;
-        this.nombreComprador = nombreComprador;
-        this.fechaCompra = fechaCompra;
-        stock--;
+        if (esDniValido(dni)) {
+            this.dniComprador = dni;
+            this.nombreComprador = nombreComprador;
+            this.fechaCompra = fechaCompra;
+            System.out.println("Compra realizada con éxito.");
+        } else {
+            System.out.println("DNI no válido. Compra no realizada.");
+        }
     }
-
 
 }
