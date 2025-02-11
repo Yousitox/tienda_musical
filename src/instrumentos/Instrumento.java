@@ -2,6 +2,12 @@ package instrumentos;
 
 import java.time.LocalDate;
 
+/* 
+ * una clase abstracta es una clase restringida 
+ * en la cual no se puede usar para crear objetos
+ * para acceder debe ser desde otra clase, una clase hija
+ * (https://www.w3schools.com/java/java_abstract.asp)
+ */
 public abstract class Instrumento {
     public enum Marca {
         PERRO_SANCHEZ_MUSIC, LA_GALLINA_DE_ORO, FEIJO_OLD_CLASIC
@@ -175,11 +181,20 @@ public abstract class Instrumento {
         }
     }
 
-    // abstract es una forma de decirlo
-    // es algo restringido y inascesible
+    /* 
+     * un metodo abstacto solo se puede usar
+     * en una clase abstracta y no tiene cuerpo
+     * el cuerpo de le proporciona en las clases hijas
+     */
     public abstract void tocar();
 
     // declaramos la calase hija guitarra
+    /* 
+     * las clases hijas deben se estaticas
+     * ya que estan dentro de una clase abstracta 
+     * y dentro de la clase padre
+     * asi podran crear instancias de la clase hija
+     */
     public static class Guitarra extends Instrumento {
         private String tipo = "Electrica";
         private int numeroCuerdas = 6;
@@ -197,6 +212,7 @@ public abstract class Instrumento {
             /*
              * Super es una palabra de java que se usa para acceder
              * a los constructores de la clase padre
+             * (https://www.datacamp.com/es/doc/java/super)
              */
             super();
         }
