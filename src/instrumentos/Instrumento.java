@@ -7,6 +7,10 @@ public class Instrumento {
         PERRO_SANCHEZ_MUSIC, LA_GALLINA_DE_ORO, FEIJO_OLD_CLASIC
     };
 
+    private static int stock = 0;
+    public static int getStock() {
+        return stock;
+    }
     // Las variables
     private double precio;
     private String modelo;
@@ -14,10 +18,40 @@ public class Instrumento {
     private String nombreComprador;
     private LocalDate fechaCompra;
     private LocalDate fechaFabricacion;
-    private static int stock = 0;
+
     private boolean sinStock;
 
     private Marca marcas;
+
+    // constructor con valores por defecto
+    public Instrumento() {
+        this.marcas = Marca.PERRO_SANCHEZ_MUSIC;
+        this.precio = 1300;
+        this.modelo = "GuitarraLite";
+        this.fechaFabricacion = LocalDate.of(2015, 10, 5);
+        stock++;
+    }
+
+    // constructor con todos los valores
+    public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
+            LocalDate fechaCompra, LocalDate fechaFabricacion) {
+        this.marcas = marcas;
+        this.precio = precio;
+        this.modelo = modelo;
+        this.dniComprador = dniComprador;
+        this.nombreComprador = nombreComprador;
+        this.fechaCompra = fechaCompra;
+        this.fechaFabricacion = fechaFabricacion;
+        stock++;
+    }
+
+    public Instrumento(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
+        this.marcas = marcas;
+        this.precio = precio;
+        this.modelo = modelo;
+        this.fechaFabricacion = fechaFabricacion;
+        stock++;
+    }
 
     // Todos los guetter y setter
     public Marca getMarcas() {
@@ -76,46 +110,12 @@ public class Instrumento {
         this.fechaFabricacion = fechaFabricacion;
     }
 
-    public static int getStock() {
-        return stock;
-    }
-
     public boolean getSinStock() {
         return sinStock;
     }
 
     public void setSinStock(boolean sinStock) {
         this.sinStock = sinStock;
-    }
-
-    // constructor con valores por defecto
-    public Instrumento() {
-        this.marcas = Marca.PERRO_SANCHEZ_MUSIC;
-        this.precio = 1300;
-        this.modelo = "GuitarraLite";
-        this.fechaFabricacion = LocalDate.of(2015, 10, 5);
-        stock++;
-    }
-
-    // constructor con todos los valores
-    public Instrumento(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
-            LocalDate fechaCompra, LocalDate fechaFabricacion) {
-        this.marcas = marcas;
-        this.precio = precio;
-        this.modelo = modelo;
-        this.dniComprador = dniComprador;
-        this.nombreComprador = nombreComprador;
-        this.fechaCompra = fechaCompra;
-        this.fechaFabricacion = fechaFabricacion;
-        stock++;
-    }
-
-    public Instrumento(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
-        this.marcas = marcas;
-        this.precio = precio;
-        this.modelo = modelo;
-        this.fechaFabricacion = fechaFabricacion;
-        stock++;
     }
 
     // toString sirve para consultar la informacion mas basica
@@ -172,5 +172,7 @@ public class Instrumento {
             System.out.println("DNI no válido. Compra no realizada.");
         }
     }
+
+    
 
 }
