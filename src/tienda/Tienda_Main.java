@@ -172,7 +172,7 @@ public class Tienda_Main {
                     Instrumento comprar = new Guitarra();
 
                     /*
-                     * Si el objeto comprar1 no es nulo, se podra comprar el producto
+                     * Si el objeto comprar no es nulo, se podra comprar el producto
                      * pidiendole despues el dni y el nombre
                      */
                     if (comprar != null) {
