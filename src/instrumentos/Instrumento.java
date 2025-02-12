@@ -1,6 +1,8 @@
 package instrumentos;
 
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /* 
  * una clase abstracta es una clase restringida 
@@ -165,8 +167,15 @@ public abstract class Instrumento {
     }
 
     // Funcion para saber si el dni es correcto devolviendo un true o false
+    //(https://www.programacionenjava.com/blog/2008/04/03/javabasico/algoritmo-de-comprobacion-de-dni-valido/)
+    //(https://es.stackoverflow.com/questions/341564/validar-dni-en-java)
     public boolean esDniValido(String dni) {
-        return true;
+        Pattern dniPattern = Pattern.compile("[0-9]{7,8}[A-Z a-z]");
+        Matcher m = dniPattern.matcher(dni);
+        if (m.matches()) {
+            return true;
+        } else
+            return false;
     }
 
     // Funcion para comprar
@@ -181,7 +190,7 @@ public abstract class Instrumento {
         }
     }
 
-    /* 
+    /*
      * un metodo abstacto solo se puede usar
      * en una clase abstracta y no tiene cuerpo
      * el cuerpo de le proporciona en las clases hijas
@@ -189,9 +198,9 @@ public abstract class Instrumento {
     public abstract void tocar();
 
     // declaramos la calase hija guitarra
-    /* 
+    /*
      * las clases hijas deben se estaticas
-     * ya que estan dentro de una clase abstracta 
+     * ya que estan dentro de una clase abstracta
      * y dentro de la clase padre
      * asi podran crear instancias de la clase hija
      */
@@ -233,41 +242,42 @@ public abstract class Instrumento {
 
     }
 
-        // declaramos la calase hija Bataria
-        public static class Bateria extends Instrumento {
-            private int numeroTambores = 6;
-            private int numeroPlatos = 2;
-    
-            // getters y setters
-            public int getNumeroTambores() {
-                return numeroTambores;
-            }
-    
-            public int getNumeroPlatos() {
-                return numeroPlatos;
-            }
-    
-            public Bateria() {
-                /*
-                 * Super es una palabra de java que se usa para acceder
-                 * a los constructores de la clase padre
-                 */
-                super();
-            }
-    
-            public Bateria(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
-                super(marcas, precio, modelo, fechaFabricacion);
-            }
-    
-            public Bateria(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
-                    LocalDate fechaCompra, LocalDate fechaFabricacion) {
-                super(marcas, precio, modelo, dniComprador, nombreComprador, fechaCompra, fechaFabricacion);
-            }
-    
-            public void tocar() {
-                System.out.println(
-                        "Tocando la Bateria " + getNumeroTambores() + " con " + getNumeroPlatos() + " cuerdas y sueno muy bien");
-            }
-    
+    // declaramos la calase hija Bataria
+    public static class Bateria extends Instrumento {
+        private int numeroTambores = 6;
+        private int numeroPlatos = 2;
+
+        // getters y setters
+        public int getNumeroTambores() {
+            return numeroTambores;
         }
+
+        public int getNumeroPlatos() {
+            return numeroPlatos;
+        }
+
+        public Bateria() {
+            /*
+             * Super es una palabra de java que se usa para acceder
+             * a los constructores de la clase padre
+             */
+            super();
+        }
+
+        public Bateria(Marca marcas, double precio, String modelo, LocalDate fechaFabricacion) {
+            super(marcas, precio, modelo, fechaFabricacion);
+        }
+
+        public Bateria(Marca marcas, double precio, String modelo, String dniComprador, String nombreComprador,
+                LocalDate fechaCompra, LocalDate fechaFabricacion) {
+            super(marcas, precio, modelo, dniComprador, nombreComprador, fechaCompra, fechaFabricacion);
+        }
+
+        public void tocar() {
+            System.out.println(
+                    "Tocando la Bateria " + getNumeroTambores() + " con " + getNumeroPlatos()
+                            + " cuerdas y sueno muy bien");
+        }
+
+    }
 }
