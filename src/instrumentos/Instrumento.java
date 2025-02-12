@@ -17,6 +17,10 @@ public abstract class Instrumento {
 
     private static int stock = 0;
 
+    
+    /** 
+     * @return int
+     */
     public static int getStock() {
         return stock;
     }
@@ -63,71 +67,139 @@ public abstract class Instrumento {
         stock++;
     }
 
+    
+    /** 
+     * @return Marca
+     */
     // Todos los guetter y setter
     public Marca getMarcas() {
         return marcas;
     }
 
+    
+    /** 
+     * @param marcas
+     */
     public void setMarcas(Marca marcas) {
         this.marcas = marcas;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getPrecio() {
         return precio;
     }
 
+    
+    /** 
+     * @param precio
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getModelo() {
         return modelo;
     }
 
+    
+    /** 
+     * @param modelo
+     */
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDniComprador() {
         return dniComprador;
     }
 
+    
+    /** 
+     * @param dniComprador
+     */
     public void setDniComprador(String dniComprador) {
         this.dniComprador = dniComprador;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getNombreComprador() {
         return nombreComprador;
     }
 
+    
+    /** 
+     * @param nombreComprador
+     */
     public void setNombreComprador(String nombreComprador) {
         this.nombreComprador = nombreComprador;
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getFechaCompra() {
         return fechaCompra;
     }
 
+    
+    /** 
+     * @param fechaCompra
+     */
     public void setFechaCompra(LocalDate fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getFechaFabricacion() {
         return fechaFabricacion;
     }
 
+    
+    /** 
+     * @param fechaFabricacion
+     */
     public void setFechaFabricacion(LocalDate fechaFabricacion) {
         this.fechaFabricacion = fechaFabricacion;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean getSinStock() {
         return sinStock;
     }
 
+    
+    /** 
+     * @param sinStock
+     */
     public void setSinStock(boolean sinStock) {
         this.sinStock = sinStock;
     }
 
+    
+    /** 
+     * @return String
+     */
     // toString sirve para consultar la informacion mas basica
     // ya que el getInfo obtine la informacion de todo
     // y al no ver informacion pone null y son datos que el
@@ -166,6 +238,11 @@ public abstract class Instrumento {
         }
     }
 
+    
+    /** 
+     * @param dni
+     * @return boolean
+     */
     // Funcion para saber si el dni es correcto devolviendo un true o false
     //(https://www.programacionenjava.com/blog/2008/04/03/javabasico/algoritmo-de-comprobacion-de-dni-valido/)
     //(https://es.stackoverflow.com/questions/341564/validar-dni-en-java)
@@ -178,6 +255,12 @@ public abstract class Instrumento {
             return false;
     }
 
+    
+    /** 
+     * @param dni
+     * @param nombreComprador
+     * @param fechaCompra
+     */
     // Funcion para comprar
     public void comprar(String dni, String nombreComprador, LocalDate fechaCompra) {
         if (esDniValido(dni)) {

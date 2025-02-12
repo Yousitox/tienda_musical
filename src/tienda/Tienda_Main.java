@@ -14,6 +14,10 @@ public class Tienda_Main {
     // el escaner
     static Scanner scaner = new Scanner(System.in);
 
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         // instanciamos la clase Tienda_Main para poder acceder a sus funciones no
         // estaticas
