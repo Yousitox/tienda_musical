@@ -160,7 +160,7 @@ public class Tienda_Main {
             try {
                 elecCompra = scaner.nextInt();
                 if (elecCompra == 0) {
-                    System.out.println("Espero que regresas pronto");
+                    System.out.println("Regresando al menu principal");
                     break;
                 }
             } catch (InputMismatchException e) {
