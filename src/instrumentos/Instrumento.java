@@ -169,7 +169,7 @@ public abstract class Instrumento {
     // Funcion para saber si el dni es correcto devolviendo un true o false
     //(https://www.programacionenjava.com/blog/2008/04/03/javabasico/algoritmo-de-comprobacion-de-dni-valido/)
     //(https://es.stackoverflow.com/questions/341564/validar-dni-en-java)
-    public boolean esDniValido(String dni) {
+    public static boolean esDniValido(String dni) {
         Pattern dniPattern = Pattern.compile("[0-9]{7,8}[A-Z a-z]");
         Matcher m = dniPattern.matcher(dni);
         if (m.matches()) {
